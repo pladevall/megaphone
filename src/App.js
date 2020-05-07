@@ -1,84 +1,73 @@
 import React from "react";
-import logo from "./logo.svg";
+import "antd/dist/antd.css";
 import "./App.css";
 
-import { Card } from "antd";
-import styled from "styled-components";
-import useSound from "use-sound";
-import { rock, snare } from "./components/Sounds";
+import SoundCardComponent from "./components/SoundCard";
+import Header from "./components/Header";
+import Search from "./components/Search";
+import Favorites from "./components/Favorites";
 
-import { loadStripe } from "@stripe/stripe-js";
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe("pk_test_1jQV5YWwGBHg9EU9mWW9EBUl");
+import styled from "styled-components";
+import {
+  snare,
+  wow,
+  hyena,
+  applause,
+  babylaugh,
+  beep,
+  boo,
+  chaching,
+  dixiehorn,
+  fart,
+  foghorn,
+  news,
+  partyhorn,
+  rooster,
+  train,
+  woosh,
+  trex,
+} from "./components/Sounds";
+import Checkout from "./components/Checkout";
+import CustomCardComponent from "./components/CustomCard";
+
 const Container = styled.div`
   padding: 1rem;
 `;
 
-const SoundCard = styled(Card)`
-  width: 8rem;
-  height: 10rem;
-  cursor: pointer;
-  border: 1px solid #dadada;
-  padding: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  /* EMOJIS */
-  font-size: 40px;
-  text-align: center;
-`;
-
-const SoundCardComponent = ({ combo }) => {
-  const [play, { isPlaying, stop }] = useSound(combo.sound);
-  return (
-    <SoundCard
-      onClick={() => {
-        return isPlaying ? stop() : play();
-      }}
-    >
-      {combo.image}
-    </SoundCard>
-  );
-};
-
 const Combos = [
-  { image: "🥳", sound: rock },
-  { image: "👀", sound: snare },
-  { image: "😎", sound: rock },
-  { image: "👏", sound: snare },
-  { image: "🥁", sound: rock },
-  { image: "😮", sound: snare },
-  { image: "💸", sound: rock },
-  { image: "🤣", sound: snare },
-  { image: "😬", sound: rock },
-  { image: "🚀", sound: snare },
+  { name: "", isFavorite: false, plan: "free", image: "🥳", sound: partyhorn },
+  { name: "", isFavorite: false, plan: "free", image: "👏", sound: applause },
+  { name: "", isFavorite: false, plan: "free", image: "🥁", sound: snare },
+  { name: "", isFavorite: false, plan: "free", image: "😮", sound: wow },
+  { name: "", isFavorite: false, plan: "free", image: "💸", sound: chaching },
+  { name: "", isFavorite: false, plan: "free", image: "👀", sound: "" },
+  { name: "", isFavorite: false, plan: "free", image: "😎", sound: "" },
+  { name: "", isFavorite: false, plan: "free", image: "🤣", sound: "" },
+  { name: "", isFavorite: false, plan: "free", image: "😬", sound: "" },
+  { name: "", isFavorite: false, plan: "free", image: "🚀", sound: "" },
+  { name: "", isFavorite: false, plan: "pro", image: "🐓", sound: rooster },
+  { name: "", isFavorite: false, plan: "pro", image: "🚂", sound: train },
+  { name: "", isFavorite: false, plan: "pro", image: "💨", sound: fart },
+  { name: "", isFavorite: false, plan: "pro", image: "👎", sound: boo },
+  { name: "", isFavorite: false, plan: "pro", image: "👶", sound: babylaugh },
+  { name: "", isFavorite: false, plan: "pro", image: "🔥", sound: "fire" },
+  { name: "", isFavorite: false, plan: "pro", image: "🤬", sound: beep },
+  { name: "", isFavorite: false, plan: "pro", image: "👊", sound: "" },
+  { name: "", isFavorite: false, plan: "pro", image: "😴", sound: "" },
+  { name: "", isFavorite: false, plan: "pro", image: "😈", sound: "" },
 ];
 
 function App() {
-  const handleClick = async (event) => {
-    // When the customer clicks on the button, redirect them to Checkout.
-    const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      items: [
-        // Replace with the ID of your SKU
-        { sku: "sku_HDLvEdoHAxi1IW", quantity: 1 },
-      ],
-      successUrl: "https://example.com/success",
-      cancelUrl: "https://example.com/cancel",
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-  };
-
   const cards = Combos.map((combo) => <SoundCardComponent combo={combo} />);
 
   return (
     <Container>
+      <Header title="📣 Megaphone" />
+      <Search />
+      <Favorites />
+      <Checkout />
+      <CustomCardComponent />
       <div style={{ display: "flex", flexWrap: "wrap" }}>{cards}</div>
-      <button role="link" onClick={handleClick}>
-        Checkout
-      </button>
     </Container>
   );
 }
