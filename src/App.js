@@ -58,7 +58,9 @@ const Combos = [
 ];
 
 function App() {
-  const cards = Combos.map((combo) => <SoundCardComponent combo={combo} />);
+  const cards = Combos.filter((combo) => true).map((combo) => (
+    <SoundCardComponent combo={combo} />
+  ));
 
   return (
     <Container>
