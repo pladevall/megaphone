@@ -1,0 +1,38 @@
+import { Input } from "antd";
+import { InputProps as AntInputProps } from "antd/lib/input";
+import { getIn, useFormikContext } from "formik";
+import React, { FC } from "react";
+
+import Item, { FormItemProps } from "../Item";
+
+interface InputProps extends AntInputProps {
+  label?: string;
+  itemProps?: FormItemProps;
+}
+
+const InputComponent: FC<InputProps> = ({ itemProps, label, ...props }) => {
+  const name = props.name || "";
+  const { values, touched, errors, handleChange, handleBlur } =
+    useFormikContext() || {};
+
+  const value = getIn(values, name);
+  const error = getIn(touched, name) && getIn(errors, name);
+
+  return (
+    <Item
+      label={label}
+      help={error}
+      validateStatus={error ? "error" : ""}
+      {...itemProps}
+    >
+      <Input
+        value={value}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        {...props}
+      />
+    </Item>
+  );
+};
+
+export default InputComponent;
