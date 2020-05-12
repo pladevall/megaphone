@@ -1,43 +1,59 @@
 import React, { FC, useState } from "react";
 import useSound from "use-sound";
 import styled from "styled-components";
-import { Card } from "antd";
+import { Row } from "antd";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 interface SoundCardProps {
   combo: any;
 }
 
 const FavoriteButton = styled.span`
+  margin-left: auto;
+  font-size: 12px;
   display: none;
-  &:hover {
-    opacity: 1;
-  }
+  padding: 0.25rem;
 `;
 
-const SoundCard = styled(Card)`
+const SoundCard = styled.div`
   width: 8rem;
   height: 10rem;
   cursor: pointer;
   border: 1px solid #dadada;
-  padding: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  border-radius: 5px;
+
   /* EMOJIS */
   font-size: 40px;
-  text-align: center;
   color: rgba(0, 0, 0, 1);
   &:hover ${FavoriteButton} {
     display: block;
   }
 `;
 
+const CardImage = styled.div`
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`;
+
+const CardName = styled.div`
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+`;
+
 const SoundCardComponent: FC<SoundCardProps> = ({ combo }) => {
   const [play, { isPlaying, stop }] = useSound(combo.sound);
 
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(combo);
 
   const handleClick = () => {
-    setState(!state);
+    setState((prev: any) => ({
+      ...prev,
+      [combo.isFavorite]: !combo.isFavorite,
+    }));
   };
 
   return (
@@ -46,8 +62,19 @@ const SoundCardComponent: FC<SoundCardProps> = ({ combo }) => {
         return isPlaying ? stop() : play();
       }}
     >
-      {combo.image}
-      <FavoriteButton onClick={handleClick}>❤️</FavoriteButton>
+      <Row style={{ width: "100%", height: "12px" }}>
+        &nbsp;
+        <FavoriteButton onClick={handleClick}>
+          {state === true ? (
+            <HeartFilled style={{ fontSize: 14, color: "#E3342F" }} />
+          ) : (
+            <HeartOutlined style={{ fontSize: 14, color: "#B8C2CC" }} />
+          )}
+        </FavoriteButton>
+      </Row>
+      <CardImage>{combo.image}</CardImage>
+
+      <CardName>{combo.name}</CardName>
     </SoundCard>
   );
 };

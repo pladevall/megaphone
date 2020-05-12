@@ -2,7 +2,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Upload as UploadAnt } from "antd";
 import { UploadProps } from "antd/lib/upload";
 import { useFormikContext } from "formik";
-import React, { FC, useState, PropsWithChildren } from "react";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
 
 import Item, { FormItemProps } from "../Item";

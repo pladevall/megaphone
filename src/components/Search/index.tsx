@@ -1,16 +1,12 @@
 import React from "react";
 import { Input } from "antd";
 
-const handleSearch = (value: string) => {
-  console.log(value);
-};
-
-const SearchComponent = () => {
+const SearchComponent = ({ onChange }) => {
   return (
     <Input.Search
       placeholder="Find your sound.."
-      onSearch={(value) => handleSearch(value)}
-      style={{ width: 200 }}
+      onChange={(event) => onChange(event.target.value)}
+      style={{ width: 200, marginBottom: "0.5rem", marginRight: "2.5rem" }}
     ></Input.Search>
   );
 };
