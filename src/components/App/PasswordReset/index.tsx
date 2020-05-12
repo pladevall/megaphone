@@ -3,7 +3,7 @@ import { Link, RouteComponentProps } from "@reach/router";
 import { auth } from "../../../Firebase/firebase";
 import Form, { Item, Field } from "../../Form";
 import SubmitButton from "../../Button";
-import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import { MailOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { Alert } from "antd";
 

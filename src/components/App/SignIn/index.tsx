@@ -1,7 +1,7 @@
 import { Link, RouteComponentProps } from "@reach/router";
 import { useState, FC } from "react";
 import React from "react";
-import { auth } from "../../../Firebase/firebase";
+// import { auth } from "../../../Firebase/firebase";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 
 import Form, { Item, Field } from "../../Form";
@@ -97,42 +97,37 @@ const SignIn: FC<RouteComponentProps> = () => {
           />
           <SubmitButton
             style={{ marginBottom: "1rem" }}
-            onClick={(event) => {
-              const signInWithEmailAndPasswordHandler = (
-                event: any,
-                email: any,
-                password: any
-              ) => {
-                event.preventDefault();
-                auth
-                  .signInWithEmailAndPassword(email, password)
-                  .catch((error: any) => {
-                    setError(
-                      "Error signing in with password and email!" as any
-                    );
-                    console.error(
-                      "Error signing in with password and email",
-                      error
-                    );
-                  });
-              };
-            }}
+            // onClick={(event) => {
+            //   const signInWithEmailAndPasswordHandler = (
+            //     event: any,
+            //     email: any,
+            //     password: any
+            //   ) => {
+            //     event.preventDefault();
+            //     auth
+            //       .signInWithEmailAndPassword(email, password)
+            //       .catch((error: any) => {
+            //         setError(
+            //           "Error signing in with password and email!" as any
+            //         );
+            //         console.error(
+            //           "Error signing in with password and email",
+            //           error
+            //         );
+            //       });
+            //   };
+            // }}
           >
             Login
           </SubmitButton>
+          {console.log(signInWithEmailAndPasswordHandler, setError)}
           <Small>
             Don&apos;t have an account?&nbsp;
             <Link to={"/signUp"}>Signup</Link>
           </Small>
         </Form>
       </Container>
-    </Background>
-  );
-};
-export default SignIn;
-
-{
-  /* <div className="mt-8">
+      {/* <div className="mt-8">
         <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
         <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           {error !== null && (
@@ -207,5 +202,8 @@ export default SignIn;
             </Link>
           </p>
         </div>
-      </div> */
-}
+      </div> */}
+    </Background>
+  );
+};
+export default SignIn;
