@@ -89,6 +89,18 @@ import terminator from "./Terminator.mp3";
 import noidea from "./NoIdea.mp3";
 import knock from "./Knock.mp3";
 
+import meanwhile from "./Meanwhile.mp3";
+import twohourslater from "./2HoursLater.mp3";
+import twokyears from "./2000Years.mp3";
+import romantic from "./Romantic.mp3";
+import gong from "./Gong.mp3";
+import anotherone from "./AnotherOne.mp3";
+import youplayedyourself from "./YouPlayedYourself.mp3";
+import coin from "./Coin.mp3";
+import developers from "./Developers.mp3";
+import wegothim from "./WeGotHim.mp3";
+import oneeternity from "./OneEternity.mp3";
+
 export {
   snare,
   wow,
@@ -179,33 +191,18 @@ export {
   terminator,
   noidea,
   knock,
+  meanwhile,
+  twohourslater,
+  twokyears,
+  gong,
+  developers,
+  romantic,
+  youplayedyourself,
+  wegothim,
+  anotherone,
+  coin,
+  oneeternity,
 };
-
-/////////////////////
-// - Gong
-// - Incoming suspense (soundbible)
-// - monkey, dog, cat, animals
-// - Mario coin, fall sound, dies
-// - Sauce
-// - CHINA (trump)
-// - Ladies anf gentleman we got him
-// - Anotha one
-// - Marvin Gaye - Let's Get It On Sound Effect
-// - You Played Yourself
-// - Developers, developers, developers.
-
-/////////////////////
-// - Meanwhile
-// - Two hours later
-// - a few moments later
-// - An eternity later
-// - 2000 Thousand Years Later
-// -
-// -
-// -
-// -
-// -
-// -
 
 // 😂 Face with Tears of Joy
 // 😭 Loudly Crying Face
@@ -226,3 +223,4 @@ export {
 // 👌 OK
 // 🙌 Wohoo
 // 🤑 money, mopney money
+// - monkey, dog, cat, animals
