@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Col, Upload, Modal, Card, message, Button } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
 import { Formik } from "formik";
 
 import { UploadOutlined } from "@ant-design/icons";
@@ -26,6 +27,16 @@ const CustomCard = styled(Card)`
   padding: 1rem;
   font-size: 40px;
   text-align: center;
+`;
+
+const NewCard = styled(Card)`
+  width: 8rem;
+  height: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  .ant-card-body {
+    padding: 0;
+  }
 `;
 
 const CustomCardComponent = () => {
@@ -92,19 +103,22 @@ const CustomCardComponent = () => {
           visible={state.visible}
           onOk={handleOk}
           onCancel={handleCancel}
+          footer={null}
         >
           <Formik initialValues={initialValues} onSubmit={handleSubmit}>
             {({ isValid, values, initialValues }) => (
               <Form>
                 <Col>
-                  <Field.Avatar name="avatar" itemProps={{ mt: "1.5rem" }} />
-                  <Field.Input
-                    name="name"
-                    placeholder="Card Name"
-                    prefix={<UserOutlined />}
-                  />
+                  <NewCard>
+                    {/* <Field.Avatar name="avatar" itemProps={{ mt: "1rem" }} /> */}
+                    {/* <Picker set="apple">
+                      <button>xxxxx</button>
+                    </Picker> */}
+                    <Field.Input name="name" placeholder="Card Name" />
+                  </NewCard>
+
                   <Upload {...props}>
-                    <Button>
+                    <Button style={{ marginTop: "1rem", marginBottom: "1rem" }}>
                       <UploadOutlined /> Click to Upload
                     </Button>
                   </Upload>
@@ -112,7 +126,7 @@ const CustomCardComponent = () => {
                 <SubmitButton
                 // disabled={}
                 >
-                  Update
+                  Upload
                 </SubmitButton>
               </Form>
             )}

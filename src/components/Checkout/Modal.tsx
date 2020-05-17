@@ -1,5 +1,39 @@
 import React from "react";
 import { Modal, Col, Row } from "antd";
+import styled from "styled-components";
+import { Link } from "@reach/router";
+
+const StyledModal = styled(Modal)`
+  .ant-modal-body {
+    padding: 0;
+    height: 10rem;
+  }
+`;
+
+const ModalHeader = styled.div`
+  font-size: 1.25rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  margin-right: auto;
+`;
+
+const UpgradeButton = styled.button`
+  font-family: "Inter";
+  font-weight: 500;
+  color: black;
+  background: #f5a623;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #f49b0b;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
 
 const UpgradeModal = ({ state, setState }) => {
   const handleOk = (e: any) => {
@@ -17,29 +51,38 @@ const UpgradeModal = ({ state, setState }) => {
   };
 
   return (
-    <Modal
-      title="Upgrade To Pro"
+    <StyledModal
+      title={null}
       visible={state.visible}
       onOk={handleOk}
       okText="Upgrade"
       okButtonProps={{ color: "red" }}
       onCancel={handleCancel}
-      style={{ padding: 0 }}
       footer={null}
     >
-      <Row justify="space-between">
-        <Col>
-          <div style={{ background: "red", height: "100%", width: "25%" }}>
-            Hello
-          </div>
+      <Row>
+        <Col
+          style={{
+            background: "#FEE140",
+            backgroundImage:
+              "linear-gradient(270deg, #FEE140 0%, #FA709A 100%)",
+            width: "5%",
+          }}
+        >
+          <div style={{ height: "100%" }}>{""}</div>
         </Col>
-        <Col>
+        <Col style={{ padding: "1rem" }}>
+          <ModalHeader>Upgrade to Pro</ModalHeader>
           <p>Create Your Own Cards</p>
           <p>Add your Own Cards</p>
           <p>Unlock Special Cards</p>
+
+          <Link to="/signUp">
+            <UpgradeButton>Upgrade to Pro</UpgradeButton>
+          </Link>
         </Col>
       </Row>
-    </Modal>
+    </StyledModal>
   );
 };
 
