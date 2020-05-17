@@ -3,7 +3,7 @@ import { Col, Upload, Modal, Card, message, Button } from "antd";
 import styled from "styled-components";
 
 import "emoji-mart/css/emoji-mart.css";
-import { Picker } from "emoji-mart";
+// import { Picker } from "emoji-mart";
 import { Formik } from "formik";
 
 import { UploadOutlined } from "@ant-design/icons";
