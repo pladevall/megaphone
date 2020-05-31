@@ -67,11 +67,11 @@ const SignIn: FC<RouteComponentProps> = () => {
         <Form>
           {error !== null && (
             <Alert
-              message="Error"
-              description={error}
+              message={error}       
               type="error"
               showIcon
               closable
+              style={{marginBottom: '1rem'}}
             />
           )}
           <Item align="center">
