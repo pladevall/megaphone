@@ -24,7 +24,7 @@ const SignInButton = styled.button`
   color: black;
   background: #f1f5f8;
   border: none;
-  border-radius: 5px;
+  border: 2px solid black;
   margin-right: 0.5rem;
   height: 100%;
   padding: 0 1rem;

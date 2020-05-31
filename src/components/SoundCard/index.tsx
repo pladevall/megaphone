@@ -34,6 +34,7 @@ const SoundCard = styled.div`
 
 
 const CardImage = styled.img`
+
   width: 40px;
   height: 40px;
   margin-top: 2rem;

@@ -10,12 +10,16 @@ const UpgradeButton = styled.button`
   font-family: "Inter";
   font-weight: 500;
   color: black;
-  background: #f5a623;
-  border: none;
-  border-radius: 5px;
+  background: #F1C410;
+  border: 2px solid black;
+  -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
+-moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
+box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
+
+
   cursor: pointer;
   &:hover {
-    background: #f49b0b;
+    background: #d9b00d;
   }
   &:focus {
     outline: none;

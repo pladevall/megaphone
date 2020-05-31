@@ -22,14 +22,18 @@ const UpgradeButton = styled.button`
   font-family: "Inter";
   font-weight: 500;
   color: black;
-  background: #f5a623;
-  border: none;
-  border-radius: 5px;
+  background: #F1C410;
+  border: 2px solid black;
+  -webkit-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
+-moz-box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
+box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.83);
   height: 2.5rem;
+  margin-left: 6rem;
+  margin-top: 1.5rem;
   cursor: pointer;
 
   &:hover {
-    background: #f49b0b;
+    background: #d9b00d;
   }
   &:focus {
     outline: none;
@@ -61,12 +65,12 @@ const UpgradeModal = ({ state, setState }) => {
       onCancel={handleCancel}
       footer={null}
     >
-      <Row>
+      <Row >
         <Col
           style={{
-            background: "#FEE140",
-            backgroundImage:
-              "linear-gradient(270deg, #FEE140 0%, #FA709A 100%)",
+            background: "#d9b00d",
+            // backgroundImage:
+            //   "linear-gradient(270deg, #F1C410 0%, #000000 100%)",
             width: "5%",
           }}
         >
@@ -74,15 +78,15 @@ const UpgradeModal = ({ state, setState }) => {
         </Col>
         <Col style={{ padding: "1rem" }}>
           <ModalHeader>Upgrade to Pro</ModalHeader>
-          <Row>
+          <Row style={{width:"100%"}}>
 
           <Col>
-          <p>1. Create Your Own Cards</p>
-          <p>2. Add your Own Cards</p>
-          <p>3. Unlock Special Cards</p>
+          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>1.</b> Create Your Own Cards</p>
+          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>2.</b> Add your Own Cards</p>
+          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>3.</b> Unlock Special Cards</p>
           </Col>
-<Col>
-          <Link to="/signUp">
+<Col >
+          <Link to="/signUp" >
             <UpgradeButton>Upgrade to Pro</UpgradeButton>
           </Link>
 </Col>
