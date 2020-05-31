@@ -337,7 +337,7 @@ export const Combos = [
   },
   {
     name: "Dolphin",
-    image: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/dolphin_1f42c.png🐬",
+    image: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/dolphin_1f42c.png",
     sound: dolphin,
     plan: "free",
     isFavorite: true,
