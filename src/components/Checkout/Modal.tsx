@@ -82,8 +82,8 @@ const UpgradeModal = ({ state, setState }) => {
 
           <Col>
           <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>1.</b> Create Your Own Cards</p>
-          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>2.</b> Add your Own Cards</p>
-          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>3.</b> Unlock Special Cards</p>
+          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>2.</b> Save Your Favorite Cards</p>
+          <p><b style={{color: 'black', fontSize: '18px', fontWeight: 'bold'}}>3.</b> Unlock 25 Extra Cards</p>
           </Col>
 <Col >
           <Link to="/signUp" >

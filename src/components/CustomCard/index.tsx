@@ -60,7 +60,6 @@ const NewCard = styled(Card)`
   color: black;
   background: #f1f5f8;
   border: none;
-  border-radius: 5px;
   margin-right: 0.5rem;
   height: 3rem;
   padding: 0 1rem;
