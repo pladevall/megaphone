@@ -32,8 +32,10 @@ const SoundCard = styled.div`
   }
 `;
 
-const CardImage = styled.div`
-  text-align: center;
+
+const CardImage = styled.img`
+  width: 40px;
+  height: 40px;
   margin-top: 2rem;
   margin-bottom: 1rem;
 `;
@@ -72,7 +74,10 @@ const SoundCardComponent: FC<SoundCardProps> = ({ combo }) => {
           )}
         </FavoriteButton>
       </Row>
-      <CardImage>{combo.image}</CardImage>
+      <div style={{textAlign: 'center'}}>
+      <CardImage src={combo.image} />
+      {combo.image2 && <CardImage src={combo.image2} />}
+      </div>
 
       <CardName>{combo.name}</CardName>
     </SoundCard>
