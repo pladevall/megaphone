@@ -6,7 +6,6 @@ import { Link } from "@reach/router";
 const StyledModal = styled(Modal)`
   .ant-modal-body {
     padding: 0;
-    height: 10rem;
   }
 `;
 
@@ -16,6 +15,7 @@ const ModalHeader = styled.div`
   font-weight: 700;
   color: rgba(0, 0, 0, 1);
   margin-right: auto;
+  margin-bottom: 1rem;
 `;
 
 const UpgradeButton = styled.button`
@@ -25,6 +25,7 @@ const UpgradeButton = styled.button`
   background: #f5a623;
   border: none;
   border-radius: 5px;
+  height: 2.5rem;
   cursor: pointer;
 
   &:hover {
@@ -73,13 +74,19 @@ const UpgradeModal = ({ state, setState }) => {
         </Col>
         <Col style={{ padding: "1rem" }}>
           <ModalHeader>Upgrade to Pro</ModalHeader>
-          <p>Create Your Own Cards</p>
-          <p>Add your Own Cards</p>
-          <p>Unlock Special Cards</p>
+          <Row>
 
+          <Col>
+          <p>1. Create Your Own Cards</p>
+          <p>2. Add your Own Cards</p>
+          <p>3. Unlock Special Cards</p>
+          </Col>
+<Col>
           <Link to="/signUp">
             <UpgradeButton>Upgrade to Pro</UpgradeButton>
           </Link>
+</Col>
+          </Row>
         </Col>
       </Row>
     </StyledModal>

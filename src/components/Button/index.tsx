@@ -18,10 +18,10 @@ const StyledButton = styled(Button).attrs((props) => ({
 `;
 
 const ButtonComponent: FC<SubmitButtonProps> = ({ children, ...props }) => {
-  const { isSubmitting, isValid } = useFormikContext() || {};
+  const { isSubmitting } = useFormikContext() || {};
   return (
     <StyledButton
-      disabled={!isValid || isSubmitting}
+      // disabled={!isValid || isSubmitting}
       loading={isSubmitting}
       {...props}
     >
