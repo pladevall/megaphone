@@ -38,10 +38,6 @@ const Small = styled.span`
   }
 `;
 
-const GoogleButton = styled.button`
-  margin-bottom: 1rem;
-`;
-
 const SignUp: FC<RouteComponentProps> = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,7 +57,7 @@ const SignUp: FC<RouteComponentProps> = () => {
       );
       generateUserDocument(user, { displayName });
     } catch (error) {
-      setError("Error Signing up with email and password" as any);
+      setError("Error signing up w/ email and password" as any);
     }
 
     setEmail("");
@@ -86,11 +82,11 @@ const SignUp: FC<RouteComponentProps> = () => {
           <Form>
             {error !== null && (
               <Alert
-                message="Error"
-                description={error}
+                message={error}
                 type="error"
                 showIcon
                 closable
+                style={{marginBottom: '1rem'}}
               />
             )}
             <Item align="center">
@@ -132,8 +128,7 @@ const SignUp: FC<RouteComponentProps> = () => {
             >
               Sign Up
             </SubmitButton>
-            <p style={{ textAlign: "center" }}>or</p>
-            <GoogleButton>Sign Up with Google</GoogleButton>
+         
             <Small>
               Already have an account? <Link to="/signIn">Sign in here</Link>
             </Small>
